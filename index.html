@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shape de Anime</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      background-color: #000;
+    }
+
+    .hero {
+        position: relative;
+        color: white;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0 5%;
+        text-align: center;
+        z-index: 1; /* Garante que o conteúdo fique sobre o background */
+    }
+
+    .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url('./images/bg-section-01.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #000; /* fallback */
+        opacity: 0.5; /* ajuste a opacidade como quiser */
+        z-index: -1; /* Fica atrás do conteúdo */
+    }
+
+    .hero h1 {
+      font-size: 90px;
+      font-weight: 900;
+      line-height: 1.2;
+      color: #FFD600;
+      text-align: center;
+      
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin: 20px 0 40px;
+      text-align: center;
+      text-shadow:
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+    }
+
+    .hero .cta-btn {
+      width: 300px;
+      background-color: #FFD600;
+      color: #000;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .hero .cta-btn:hover {
+      background-color: #333;
+    }
+
+    .badge {
+      position: absolute;
+      top: 30px;
+      left: 5%;
+      background-color: black;
+      padding: 10px 15px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .badge.yellow {
+      background-color: #FFD600;
+      color: black;
+      top: 30px;
+      right: 5%;
+      left: auto;
+    }
+
+    .sessao-dor {
+        position: relative;
+        color: white;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 5% 5%;
+        text-align: center;
+        z-index: 1; /* Garante que o conteúdo fique sobre o background */
+    }
+
+    .sessao-dor::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url('./images/bg-section-02.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #000; /* fallback */
+        opacity: 0.7; /* ajuste a opacidade como quiser */
+        z-index: -1; /* Fica atrás do conteúdo */
+    }
+
+    .sessao-dor .conteudo {
+      max-width: 700px;
+      color: white;
+      text-align: center;
+    }
+
+  .sessao-dor h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 30px;
+    color: #FFD600;
+  }
+
+  .bloco {
+    margin-bottom: 30px;
+  }
+
+  .bloco p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+
+  .frase-impacto p {
+    font-size: 1.3rem;
+    font-style: italic;
+    font-weight: 600;
+    color: #00ffff;
+    margin: 40px 0;
+  }
+
+  .frase-final {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-top: 50px;
+    color: #ffd700;
+    text-align: center;
+  }
+
+  .sessao-beneficios {
+    background-color: #0f0f0f;
+    color: white;
+    padding: 80px 5%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sessao-beneficios .container {
+    max-width: 1000px;
+    width: 100%;
+  }
+
+  .sessao-beneficios h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 50px;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .sessao-beneficios .destaque {
+    color: #ffd700;
+  }
+
+  .beneficios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .card {
+    display: flex;
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    gap: 15px;
+    position: relative;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .card img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .card-texto {
+    width: 100%;
+  }
+
+  .card-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 10px;
+  }
+
+  .card h3 {
+    font-size: 1.1rem;
+    color: #ffd700;
+    margin-bottom: 5px;
+  }
+
+  .card .resumo {
+    font-size: 1rem;
+    color: #ddd;
+    line-height: 1.4;
+  }
+
+  .toggle-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #ffd700;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .toggle-btn.rotate {
+    transform: rotate(180deg);
+  }
+
+  .descricao-expandida {
+    margin-top: 15px;
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    display: none;
+  }
+
+  .btn-area {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .cta-btn {
+    background-color: #ffd700;
+    color: #000;
+    font-weight: 800;
+    font-size: 1.1rem;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .cta-btn:hover {
+    background-color: #ffcc00;
+  }
+
+  /* Responsivo */
+  @media screen and (max-width: 768px) {
+    .beneficios-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .card {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+
+  /* Animação (opcional) */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .conteudo > * {
+    animation: fadeIn 0.7s ease forwards;
+    opacity: 0;
+  }
+
+  .conteudo > *:nth-child(1) { animation-delay: 0.2s; }
+  .conteudo > *:nth-child(2) { animation-delay: 0.4s; }
+  .conteudo > *:nth-child(3) { animation-delay: 0.6s; }
+  .conteudo > *:nth-child(4) { animation-delay: 0.8s; }
+
+
+
+    @media screen and (max-width: 768px) {
+      .hero h1 {
+        font-size: 50px;
+      }
+
+      .hero p {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="badge">+ DE 2.000 ALUNOS EM EVOLUÇÃO</div>
+    <div class="badge yellow">VAGAS LIMITADAS</div>
+    <h1>Shape de Anime em 12 semanas</h1>
+    <!-- <p>Esqueça treinos aleatórios.<br> Aqui você segue um plano real, direto, testado e insano.</p> -->
+    <p>ESQUEÇA TREINOS ALEATÓRIOS.<br> AQUI VOCÊ SEGUE UM PLANO REAL, DIRETO E TESTADO.</p>
+    <button class="cta-btn" onclick="document.getElementById('sessao-dor').scrollIntoView({ behavior: 'smooth' })">
+      QUERO CONHECER!
+    </button>
+  </section>
+
+  <section id="sessao-dor" class="sessao-dor">
+    <div class="overlay">
+      <div class="conteudo">
+        
+        <h2>Cansado de se sentir fraco, invisível e frustrado?</h2>
+  
+        <div class="frase-impacto">
+          <p>Você acorda, se olha no espelho…</p>
+          <p>E tudo que vê é alguém que ainda não se sente confiante com o próprio corpo.</p>
+        </div>
+
+  
+        <div class="frase-impacto">
+          <p>E se o único motivo disso ainda não ter mudado… fosse só porque ninguém te mostrou o caminho certo?</p>
+        </div>
+  
+        <div class="bloco">
+          <p>O <strong>Shape de Anime</strong> foi criado pra quem cansou de se sentir travado, pequeno, sem autoestima.</p>
+          <p>Pra quem decidiu que chegou a hora de evoluir.</p>
+        </div>
+  
+        <div class="frase-final">
+          <strong>Você só precisa ser mais forte do que ontem.</strong>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+
+  <section id="sessao-beneficios" class="sessao-beneficios">
+    <div class="container">
+      <h2>Você vai receber tudo isso para conquistar o seu <span class="destaque">Shape de Anime:</span></h2>
+  
+      <div class="beneficios-grid">
+
+        <!-- CARD 1 -->
+        <div class="card">
+          <img src="icons/ebook1.png" alt="E-book Trilha" />
+          <div class="card-texto">
+            <div class="card-topo">
+              <div>
+                <h3>E-book “Trilha do Shape de Anime”</h3>
+                <p class="resumo">Treinos do zero ao avançado, inspirados nos seus personagens favoritos.</p>
+              </div>
+              <button class="toggle-btn">▼</button>
+            </div>
+            <div class="descricao-expandida">
+              <p>Esse e-book guia você em uma jornada completa de transformação, dividida em "fases de evolução", como nos arcos de anime. Cada treino tem foco estratégico: força, hipertrofia, densidade muscular e estética. É como seguir um roteiro de superação inspirado nos maiores heróis dos animes.</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- CARD 2 -->
+        <div class="card">
+          <img src="icons/ebook2.png" alt="E-book de Receitas" />
+          <div class="card-texto">
+            <div class="card-topo">
+              <div>
+                <h3>E-book de Receitas Rápidas e Anabólicas</h3>
+                <p class="resumo">Receitas simples, baratas e com alto valor nutricional.</p>
+              </div>
+              <button class="toggle-btn">▼</button>
+            </div>
+            <div class="descricao-expandida">
+              <p>Receitas práticas para quem não quer perder tempo na cozinha. Preparos com poucos ingredientes, alto teor proteico, baixo custo e sabor de verdade. Ideal para quem precisa bater a meta calórica sem depender de marmita ou whey o dia todo.</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- CARD 3 -->
+        <div class="card">
+          <img src="icons/whatsapp.png" alt="Suporte WhatsApp" />
+          <div class="card-texto">
+            <div class="card-topo">
+              <div>
+                <h3>Suporte nutricional exclusivo via WhatsApp</h3>
+                <p class="resumo">Acompanhamento 1:1 com plano alimentar real e adaptado.</p>
+              </div>
+              <button class="toggle-btn">▼</button>
+            </div>
+            <div class="descricao-expandida">
+              <p>Você não vai receber um plano genérico. Terá acesso a um acompanhamento personalizado via WhatsApp, com ajustes e orientações específicas pra sua realidade, objetivos e rotina. Um verdadeiro aliado pra te guiar no caminho certo.</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- CARD 4 -->
+        <div class="card">
+          <img src="icons/calculadora.png" alt="Calculadora" />
+          <div class="card-texto">
+            <div class="card-topo">
+              <div>
+                <h3>Calculadora de Dieta Inteligente</h3>
+                <p class="resumo">Descubra exatamente quanto comer para crescer com qualidade.</p>
+              </div>
+              <button class="toggle-btn">▼</button>
+            </div>
+            <div class="descricao-expandida">
+              <p>Uma ferramenta simples e poderosa para definir seus macros (calorias, proteínas, gorduras e carboidratos) de forma automática, com base no seu peso, objetivo e tipo físico. Elimine o achismo da dieta.</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- CARD 5 -->
+        <div class="card">
+          <img src="icons/trofeu.png" alt="Competição" />
+          <div class="card-texto">
+            <div class="card-topo">
+              <div>
+                <h3>Competição no Gym Rats – valendo R$1.000</h3>
+                <p class="resumo">Participe, evolua e concorra a uma premiação real.</p>
+              </div>
+              <button class="toggle-btn">▼</button>
+            </div>
+            <div class="descricao-expandida">
+              <p>Use o app Gym Rats para registrar seus treinos e evolução. Ao final da jornada, os alunos que mais evoluírem participarão de uma votação valendo R$1.000 em prêmio. É o incentivo perfeito pra não parar no meio do caminho.</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- CARD 6 -->
+        <div class="card">
+          <img src="icons/spotify.png" alt="Playlist Spotify" />
+          <div class="card-texto">
+            <div class="card-topo">
+              <div>
+                <h3>Playlist insana no Spotify</h3>
+                <p class="resumo">Músicas épicas pra ativar o modo protagonista nos treinos.</p>
+              </div>
+              <button class="toggle-btn">▼</button>
+            </div>
+            <div class="descricao-expandida">
+              <p>Uma curadoria musical feita pra treinar no modo história. Cada música escolhida remete a superação, força e atitude. Escute enquanto treina e entre no clima dos maiores momentos de superação dos animes.</p>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+      
+  
+      <div class="btn-area">
+        <button class="cta-btn">QUERO TUDO ISSO PRA MIM</button>
+      </div>
+    </div>
+  </section>
+  
+  
+  
+
+</body>
+
+<script>
+  document.querySelectorAll('.card').forEach((card) => {
+    card.addEventListener('click', () => {
+      const descricao = card.querySelector('.descricao-expandida');
+      const toggleBtn = card.querySelector('.toggle-btn');
+      const isVisible = descricao.style.display === 'block';
+
+      descricao.style.display = isVisible ? 'none' : 'block';
+      toggleBtn.classList.toggle('rotate', !isVisible);
+    });
+  });
+</script>
+
+</html>
