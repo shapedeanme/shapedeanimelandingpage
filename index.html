@@ -105,7 +105,7 @@
     .sessao-dor {
         position: relative;
         color: white;
-        height: 100vh;
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -154,7 +154,6 @@
     font-size: 1.3rem;
     font-style: italic;
     font-weight: 600;
-    color: #00ffff;
     margin: 40px 0;
   }
 
@@ -280,6 +279,81 @@
   .cta-btn:hover {
     background-color: #ffcc00;
   }
+
+  .sessao-depoimentos {
+  background-color: #0a0a0a;
+  color: white;
+  padding: 80px 5%;
+  text-align: center;
+}
+
+.sessao-depoimentos .container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.sessao-depoimentos h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.sessao-depoimentos .sub {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 40px;
+}
+
+.carrossel-depoimentos {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carrossel-depoimentos::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carrossel-depoimentos::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border-radius: 4px;
+}
+
+.depoimento {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 20px;
+  min-width: 280px;
+  max-width: 320px; /* Limite de largura */
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  text-align: left;
+}
+
+
+.depoimento img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.depoimento .nome {
+  font-weight: 700;
+  color: #ffd700;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.depoimento .texto {
+  font-size: 0.95rem;
+  color: #ddd;
+  line-height: 1.6;
+}
+
 
   /* Responsivo */
   @media screen and (max-width: 768px) {
@@ -481,6 +555,36 @@
       </div>
     </div>
   </section>
+
+  <section id="sessao-depoimentos" class="sessao-depoimentos">
+    <div class="container">
+      <h2>Eles começaram do zero. Hoje são inspiração.</h2>
+      <p class="sub">Veja o que alguns alunos estão dizendo após aplicar o método Shape de Anime:</p>
+  
+      <div class="carrossel-depoimentos">
+        
+        <div class="depoimento">
+          <img src="images/evolution1.jpg" alt="Lucas antes e depois" />
+          <p class="nome">Lucas – 18 anos</p>
+          <p class="texto">"Sempre fui o mais magrelo da turma. Depois de 90 dias com o Shape de Anime, ganhei 6kg de massa e recebi elogios pela primeira vez na vida."</p>
+        </div>
+  
+        <div class="depoimento">
+          <img src="images/evolution2.jpg" alt="Matheus" />
+          <p class="nome">Matheus – 23 anos</p>
+          <p class="texto">"Eu achava que academia não era pra mim. Hoje treino 4x por semana, sigo dieta e me sinto mais bonita, mais forte, mais eu."</p>
+        </div>
+  
+        <div class="depoimento">
+          <img src="images/evolution2.jpg" alt="João" />
+          <p class="nome">João – 21 anos</p>
+          <p class="texto">"O acompanhamento pelo WhatsApp foi o que fez toda diferença. A cada dúvida, eu tinha suporte. Me senti guiado o tempo todo."</p>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
   
   
   
